@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect | Discover College Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/mesh.css">
+    <style>
+        /* Updated Hero with Campus Background */
+        .hero {
+            position: relative;
+            /* Using the user-provided campus image with a light overlay for black text readability */
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url('https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/551/2020/4/8/85147818_2707342322648760_4168690472904032256_o.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: black;
+            padding: 8rem 0 6rem;
+            overflow: hidden;
+        }
+
+        /* Animated background shapes */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-image-container {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-img:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.02);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: black;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: black;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: black;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 20;
+            padding-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image-wrapper {
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover .card-bg-img {
+            transform: scale(1.1);
+        }
+
+        .feature-content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            margin-top: -3.5rem;
+            /* Overlap image */
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .btn-outline-white {
+            color: black;
+            border: 2px solid black;
+        }
+
+        .btn-outline-white:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Campus<span class="highlight">Connect</span></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-badge">✨ The Future of Campus Life is Here</div>
+                <h1 class="hero-title">Unlock Your<br>Campus Experience</h1>
+                <p class="hero-subtitle">Discover the most exciting hackathons, workshops, and cultural fests happening
+                    at GLA University. Connect, compete, and celebrate.</p>
+                <div class="hero-actions">
+                    <a href="calendar.html" class="btn btn-primary btn-lg">Browse Events</a>
+                    <a href="about.html" class="btn btn-outline-white btn-lg">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container feature-cards">
+            <div class="feature-card">
+                <div class="card-image-wrapper mesh-gradient-1">
+                    <div class="card-overlay-text">Coding & Tech</div>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Tech Hackathons</h3>
+                    <p>Join coding battles like Payload Party and AI Innovation to showcase your skills.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="card-image-wrapper mesh-gradient-2">
+                    <div class="card-overlay-text">Music & Arts</div>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Cultural Fests</h3>
+                    <p>Express yourself in poetry at Kavya Sangam or perform at the Music Fest.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="card-image-wrapper mesh-gradient-3">
+                    <div class="card-overlay-text">Workshops</div>
+                </div>
+                <div class="feature-content">
+                    <div class="feature-icon">💡</div>
+                    <h3>Skill Workshops</h3>
+                    <p>Learn new technologies and soft skills from industry experts and seniors.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Active Events</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2k+</h3>
+                    <p>Students Registered</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Clubs & Societies</p>
+                </div>
+                <div class="stat-item">
+                    <h3>₹50k+</h3>
+                    <p>Prizes Won</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Events</h2>
+                    <a href="calendar.html" class="view-all">View All &rarr;</a>
+                </div>
+                <div class="events-grid" id="featured-events">
+                    <!-- Events will be loaded here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light">
+            <div class="container centered">
+                <h2 class="section-title">Why CampusConnect?</h2>
+                <p class="section-subtitle">We bring the entire university ecosystem to your fingertips.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Campus<span class="highlight">Connect</span></a>
+                <p>Connecting students with opportunities.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+/* =========================================
+   1. Variables & Design Tokens
+   ========================================= */
+:root {
+    /* Colors */
+    --primary-color: #4F46E5;       /* Indigo 600 */
+    --primary-hover: #4338CA;       /* Indigo 700 */
+    --secondary-color: #10B981;     /* Emerald 500 */
+    --accent-color: #F59E0B;        /* Amber 500 */
+    
+    --bg-body: #F9FAFB;             /* Gray 50 */
+    --bg-card: #FFFFFF;
+    --bg-translucent: rgba(255, 255, 255, 0.8);
+    
+    --text-main: #111827;           /* Gray 900 */
+    --text-muted: #6B7280;          /* Gray 500 */
+    --text-light: #F3F4F6;
+    
+    --border-color: #E5E7EB;        /* Gray 200 */
+    
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Layout */
+    --container-width: 1200px;
+    --header-height: 70px;
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-glow: 0 0 15px rgba(79, 70, 229, 0.3);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================
+   2. Reset & Base Styles
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* =========================================
+   3. Utility Classes
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.text-center { text-align: center; }
+.highlight { color: var(--primary-color); }
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.section-header.centered {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.25rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* View All Link */
+.view-all-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-all-link:hover {
+    gap: 0.8rem; /* Slide arrow effect */
+}

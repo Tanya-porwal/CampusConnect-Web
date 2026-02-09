@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CampusConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/mesh.css">
+    <link rel="stylesheet" href="styles/auth.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Campus<span class="highlight">Connect</span></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-hero mesh-gradient-3"
+            style="padding: 6rem 0 8rem; text-align: center; color: white; margin-bottom: -4rem; position: relative;">
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;">
+            </div>
+            <div class="container" style="position: relative; z-index: 2;">
+                <h1 style="font-size: 3rem; margin-bottom: 1rem; color: #fce7f3;">Get in Touch</h1>
+                <p style="font-size: 1.2rem; color: #fbcfe8;">Have questions? We'd love to hear from you.</p>
+            </div>
+        </div>
+
+        <div class="container" style="padding-bottom: 4rem;">
+            <div class="auth-container"
+                style="max-width: 900px; margin: 0 auto; background: white; color: var(--text-dark); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 3rem;">
+
+                <!-- Form Side -->
+                <div>
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: #1e293b;">Send a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label style="color: #64748b;">Name</label>
+                            <input type="text" class="form-control"
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; color: #333;"
+                                placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label style="color: #64748b;">Email</label>
+                            <input type="email" class="form-control"
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; color: #333;"
+                                placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label style="color: #64748b;">Message</label>
+                            <textarea class="form-control" rows="4"
+                                style="background: #f8fafc; border: 1px solid #e2e8f0; color: #333;"
+                                placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn-block">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Info Side -->
+                <div
+                    style="background: #f1f5f9; padding: 2rem; border-radius: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: #1e293b;">Contact Info</h3>
+                        <div style="margin-bottom: 1.5rem;">
+                            <strong style="display: block; color: #1e293b; margin-bottom: 0.25rem;">📍 Address</strong>
+                            <p class="text-muted">GLA University, Mathura<br>Chaumuhan, Uttar Pradesh 281406</p>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <strong style="display: block; color: #1e293b; margin-bottom: 0.25rem;">📧 Email</strong>
+                            <p class="text-muted">campusconnect@gla.ac.in</p>
+                        </div>
+                        <div>
+                            <strong style="display: block; color: #1e293b; margin-bottom: 0.25rem;">📞 Phone</strong>
+                            <p class="text-muted">+91 123 456 7890</p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="margin-top: 2rem; height: 200px; background: #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+                        <!-- Using a generic map image from Unsplash as static map -->
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=600"
+                            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;" alt="Map">
+                        <span
+                            style="position: absolute; background: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">View
+                            on Google Maps</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Campus<span class="highlight">Connect</span></a>
+                <p>Connecting students with opportunities.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

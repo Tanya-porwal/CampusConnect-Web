@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops | CampusConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--secondary-color), #059669);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            border-radius: 0 0 50px 50px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.4);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        .workshop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .workshop-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -10px rgba(16, 185, 129, 0.15);
+        }
+
+        .workshop-image {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .workshop-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .workshop-tag {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--secondary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .workshop-meta {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Campus<span class="highlight">Connect</span></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="workshops.html" class="active">Workshops</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Skill Workshops</h1>
+                <p>Level up your skills with hands-on sessions from experts.</p>
+            </div>
+        </div>
+
+        <div class="container workshop-grid">
+            <!-- Workshop 1 -->
+            <div class="workshop-card">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600"
+                    alt="Web Dev Workshop" class="workshop-image">
+                <div class="workshop-content">
+                    <span class="workshop-tag">Development</span>
+                    <h3>Full Stack Web Development</h3>
+                    <p>Learn to build modern web applications using React and Node.js in this intensive 2-day workshop.
+                    </p>
+                    <div class="workshop-meta">
+                        <span>📅 Feb 10, 2026</span>
+                        <a href="#" class="btn btn-sm btn-outline">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 2 -->
+            <div class="workshop-card">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=600"
+                    alt="Data Science" class="workshop-image">
+                <div class="workshop-content">
+                    <span class="workshop-tag">Data Science</span>
+                    <h3>Intro to Machine Learning</h3>
+                    <p>Get started with Python and ML algorithms. No prior experience required.</p>
+                    <div class="workshop-meta">
+                        <span>📅 Feb 15, 2026</span>
+                        <a href="#" class="btn btn-sm btn-outline">Register</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop 3 -->
+            <div class="workshop-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600"
+                    alt="Design" class="workshop-image">
+                <div class="workshop-content">
+                    <span class="workshop-tag">Design</span>
+                    <h3>UI/UX Design Fundamentals</h3>
+                    <p>Master Figma and learn the principles of user-centered design.</p>
+                    <div class="workshop-meta">
+                        <span>📅 Feb 20, 2026</span>
+                        <a href="#" class="btn btn-sm btn-outline">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Campus<span class="highlight">Connect</span></a>
+                <p>Connecting students with opportunities.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar | CampusConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/mesh.css">
+    <style>
+        .calendar-page-header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .calendar-wrapper {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            min-height: 600px;
+        }
+
+        @media (max-width: 900px) {
+            .calendar-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calendar-sidebar {
+            background: #ffffff;
+            padding: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .upcoming-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mini-event-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: none;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        .mini-event-card:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .mini-date {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .mini-title {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        .calendar-main {
+            padding: 2rem;
+        }
+
+        .col-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .month-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1rem;
+        }
+
+        .cal-day-header {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding-bottom: 0.5rem;
+        }
+
+        .cal-day {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+            background: #f8fafc;
+            padding: 0.5rem;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cal-day:hover {
+            border-color: var(--primary-color);
+            background: #ffffff;
+        }
+
+        .cal-day.active {
+            background: #eff6ff;
+            border-color: #3b82f6;
+        }
+
+        .day-number {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .day-event-dot {
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Campus<span class="highlight">Connect</span></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calendar.html" class="active">Calendar</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="hackathons.html">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="calendar-page-header mesh-gradient-2" style="margin-bottom: 2rem;">
+            <div class="container">
+                <h1 style="color: #e0e7ff;">Event Schedule</h1>
+                <p style="color: #c7d2fe;">Don't miss out on what's happening this month.</p>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 4rem;">
+            <div class="calendar-wrapper">
+                <aside class="calendar-sidebar">
+                    <h3 class="sidebar-title">Upcoming</h3>
+                    <div class="upcoming-list">
+                        <div class="mini-event-card">
+                            <div class="mini-date">Feb 4</div>
+                            <div class="mini-title">Water Contamination Detection</div>
+                        </div>
+                        <div class="mini-event-card" style="border-left-color: #ec4899;">
+                            <div class="mini-date">Feb 7</div>
+                            <div class="mini-title">Payload Party Hackathon</div>
+                        </div>
+                        <div class="mini-event-card" style="border-left-color: #8b5cf6;">
+                            <div class="mini-date">Feb 14</div>
+                            <div class="mini-title">Kavya Sangam Poetry</div>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="calendar-main">
+                    <div class="cal-header">
+                        <h2 class="month-title">February 2026</h2>
+                        <div class="cal-actions">
+                            <button class="btn btn-outline btn-sm">&lt;</button>
+                            <button class="btn btn-outline btn-sm">&gt;</button>
+                        </div>
+                    </div>
+                    <div class="cal-grid" id="calendar-grid">
+                        <div class="cal-day-header">Sun</div>
+                        <div class="cal-day-header">Mon</div>
+                        <div class="cal-day-header">Tue</div>
+                        <div class="cal-day-header">Wed</div>
+                        <div class="cal-day-header">Thu</div>
+                        <div class="cal-day-header">Fri</div>
+                        <div class="cal-day-header">Sat</div>
+
+                        <!-- Empty Days -->
+                        <div class="cal-day" style="opacity: 0.3">29</div>
+                        <div class="cal-day" style="opacity: 0.3">30</div>
+                        <div class="cal-day" style="opacity: 0.3">31</div>
+
+                        <!-- Feb 1-7 -->
+                        <div class="cal-day">
+                            <div class="day-number">1</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">2</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">3</div>
+                        </div>
+                        <div class="cal-day active">
+                            <div class="day-number">4</div>
+                            <div class="day-event-dot"></div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">5</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">6</div>
+                        </div>
+                        <div class="cal-day active">
+                            <div class="day-number">7</div>
+                            <div class="day-event-dot" style="background: #ec4899"></div>
+                        </div>
+
+                        <!-- Feb 8-14 -->
+                        <div class="cal-day">
+                            <div class="day-number">8</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">9</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">10</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">11</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">12</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">13</div>
+                        </div>
+                        <div class="cal-day active">
+                            <div class="day-number">14</div>
+                            <div class="day-event-dot" style="background: #8b5cf6"></div>
+                        </div>
+
+                        <!-- Feb 15-21 -->
+                        <div class="cal-day">
+                            <div class="day-number">15</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">16</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">17</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">18</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">19</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">20</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">21</div>
+                        </div>
+
+                        <!-- Feb 22-28 -->
+                        <div class="cal-day">
+                            <div class="day-number">22</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">23</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">24</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">25</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">26</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">27</div>
+                        </div>
+                        <div class="cal-day">
+                            <div class="day-number">28</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Campus<span class="highlight">Connect</span></a>
+                <p>Connecting students with opportunities.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

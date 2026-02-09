@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathons | CampusConnect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            /* Dark theme for hackathons */
+            color: #e2e8f0;
+            background-image:
+                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .site-header {
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .site-header .logo,
+        .site-header .nav-list a {
+            color: white;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(to right, #4ade80, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
+            }
+
+            to {
+                text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            }
+        }
+
+        .hackathon-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .hackathon-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hackathon-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .hackathon-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hackathon-content {
+            padding: 2.5rem;
+        }
+
+        .status-badge {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+        }
+
+        .hackathon-meta {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            color: #94a3b8;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hackathon-actions {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hackathon-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hackathon-img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Campus<span class="highlight">Connect</span></a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="hackathons.html" class="active">Hackathons</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-secondary">Login</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Build The Future</h1>
+                <p>Compete in the most prestigious hackathons on campus.</p>
+            </div>
+
+            <div class="hackathon-list" id="hackathons-container">
+                <!-- JS will filter/load here, but adding static for preview -->
+
+                <!-- Initial static item to show visual style -->
+                <div class="hackathon-card">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600"
+                        alt="AI Innovation Hackathon" class="hackathon-img">
+                    <div class="hackathon-content">
+                        <span class="status-badge">Registration Open</span>
+                        <h2 style="margin-top: 1rem; font-size: 2rem; color: white;">AI Innovation Hackathon</h2>
+                        <p style="color: #cbd5e1; margin-top: 0.5rem;">Build the next generation of AI applications. 48
+                            hours of coding, free food, and massive prizes.</p>
+
+                        <div class="hackathon-meta">
+                            <div class="meta-item">📅 Feb 15-17, 2026</div>
+                            <div class="meta-item">📍 Main Auditorium</div>
+                            <div class="meta-item">👥 Teams of 2-4</div>
+                        </div>
+
+                        <div class="hackathon-actions">
+                            <a href="#" class="btn btn-primary btn-lg">Register Team</a>
+                            <a href="#" class="btn btn-outline-white">View Rules</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">Campus<span class="highlight">Connect</span></a>
+                <p>Connecting students with opportunities.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        const hackathons = [
+            {
+                id: 103,
+                title: "Water Contamination Detection (Biozenesys)",
+                category: "Competition",
+                date: "Feb 04, 2026",
+                location: "GLA University Campus",
+                image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600"
+            },
+            {
+                id: 101,
+                title: "Payload Party (Cyberonites)",
+                category: "Tech",
+                date: "Feb 07, 2026",
+                location: "Academic Block 1",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+            }
+        ];
+
+        // Simple script to duplicate cards for the hackathons list purely for visual demo based on data
+        const container = document.getElementById('hackathons-container');
+
+        hackathons.forEach(hack => {
+            const card = document.createElement('div');
+            card.className = 'hackathon-card';
+            card.innerHTML = `
+                <img src="${hack.image}" alt="${hack.title}" class="hackathon-img">
+                <div class="hackathon-content">
+                    <span class="status-badge">Upcoming</span>
+                    <h2 style="margin-top: 1rem; font-size: 1.8rem; color: white;">${hack.title}</h2>
+                    <p style="color: #cbd5e1; margin-top: 0.5rem;">Join us for an exciting event at ${hack.location}.</p>
+                    <div class="hackathon-meta">
+                        <div class="meta-item">📅 ${hack.date}</div>
+                        <div class="meta-item">📍 ${hack.location}</div>
+                    </div>
+                    <div class="hackathon-actions">
+                        <a href="#" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+             `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+
+</html>
