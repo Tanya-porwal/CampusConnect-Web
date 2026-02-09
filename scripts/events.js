@@ -6,7 +6,7 @@ const allEvents = [
         category: "Tech",
         date: "Feb 04, 2026",
         location: "GLA University Campus",
-        image: "https://images.unsplash.com/photo-1581093588401-409b687f3ea9?auto=format&fit=crop&q=80&w=600"
+        image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=600"
     },
     {
         id: 101,
@@ -14,7 +14,7 @@ const allEvents = [
         category: "Tech",
         date: "Feb 07, 2026",
         location: "Academic Block 1",
-        image: "https://images.unsplash.com/photo-1504384308090-c54be3855833?auto=format&fit=crop&q=80&w=600"
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
     },
     {
         id: 102,
@@ -22,7 +22,7 @@ const allEvents = [
         category: "Art",
         date: "Feb 11, 2026",
         location: "EC Conference Hall, AB-2",
-        image: "https://images.unsplash.com/photo-1459749411177-0473ef7161cf?auto=format&fit=crop&q=80&w=600"
+        image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=600"
     },
     {
         id: 1,
@@ -62,7 +62,7 @@ const allEvents = [
         category: "Art",
         date: "Apr 05, 2026",
         location: "Open Air Theatre",
-        image: "https://images.unsplash.com/photo-1459749411177-0473ef7161cf?auto=format&fit=crop&q=80&w=600"
+        image: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&q=80&w=600"
     },
     {
         id: 6,
