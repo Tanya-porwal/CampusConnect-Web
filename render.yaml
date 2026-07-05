@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: campusconnect
+    name: campusconnect-tanyaporwal
     plan: free
     runtime: node
     buildCommand: npm run build
