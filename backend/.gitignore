@@ -1,6 +1,29 @@
+# Node modules
 node_modules/
+
+# Environment variables
 .env
+
+# System files
 .DS_Store
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Logs
+logs/
+
+# Tests
+test-output/
+
+# Build artifacts
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS temp files
+*.swp
+*.swo

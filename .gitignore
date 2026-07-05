@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+
+# Design & Explanation files
+Database_Schema_Design.md
+CampusConnect_Explanation.md
