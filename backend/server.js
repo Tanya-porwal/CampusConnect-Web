@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -40,10 +41,21 @@ app.get('/api/health', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../frontend/dist')));
+    const distPath = path.join(process.cwd(), 'frontend', 'dist');
+    console.log('CWD:', process.cwd());
+    console.log('Dist path:', distPath);
+    console.log('Dist exists:', fs.existsSync(distPath));
+    console.log('index.html exists:', fs.existsSync(path.join(distPath, 'index.html')));
+
+    app.use(express.static(distPath));
 
     app.get(/.*/, (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend', 'dist', 'index.html'));
+        const indexPath = path.join(distPath, 'index.html');
+        if (fs.existsSync(indexPath)) {
+            res.sendFile(indexPath);
+        } else {
+            res.status(404).send('Frontend not found. Dist path: ' + distPath);
+        }
     });
 }
 
